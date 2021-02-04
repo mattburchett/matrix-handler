@@ -16,7 +16,7 @@ import (
 
 // Run ...
 func Run(info *router.BuildInfo) error {
-	conf, err := config.GetConfig("config.json")
+	conf, err := config.GetConfig("/config/config.json")
 	if err != nil {
 		log.Fatal().Err(err)
 	}
