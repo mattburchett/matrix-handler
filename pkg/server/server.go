@@ -32,7 +32,7 @@ func Run(info *router.BuildInfo) error {
 	router := router.NewRouter(info)
 
 	router.HandleWithMetrics("/generic/{matrixRoom}/{matrixUser}/{matrixPassword}", generic.Handle(conf)).Methods(http.MethodPost)
-	router.HandleWithMetrics("/slack/{matrixRoom}/{matrixUser}/{matrixPassword}", generic.Handle(conf)).Methods(http.MethodPost)
+	router.HandleWithMetrics("/slack/{matrixRoom}/{matrixUser}/{matrixPassword}", slack.Handle(conf)).Methods(http.MethodPost)
 
 	srv := http.Server{
 		Addr:    fmt.Sprintf(":%d", conf.Port),
