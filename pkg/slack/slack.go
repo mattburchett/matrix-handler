@@ -27,6 +27,10 @@ func Handle(cfg config.Config) http.HandlerFunc {
 
 		data := parseSlack(reqBody)
 
+		// Attempt to join romo before publishing
+		matrix.JoinRoom(cfg, vars, token)
+
+		// Publish to Matrix
 		resp := matrix.PublishText(cfg, vars, []byte(data), token)
 
 		router.Respond(w, 200, resp)

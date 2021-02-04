@@ -24,6 +24,10 @@ func Handle(cfg config.Config) http.HandlerFunc {
 			log.Error().Err(err).Msg("An error has occurred")
 		}
 
+		// Attempt to join room before sending a message.
+		matrix.JoinRoom(cfg, vars, token)
+
+		// Publish to Matrix
 		resp := matrix.PublishText(cfg, vars, reqBody, token)
 
 		router.Respond(w, 200, resp)
