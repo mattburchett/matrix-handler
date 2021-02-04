@@ -1,7 +1,7 @@
 FROM golang:alpine AS build
 
 WORKDIR /root/
-COPY * /root/
+COPY . /root/
 RUN go build -o /root/matrix-handler cmd/svr/main.go
 
 FROM scratch
