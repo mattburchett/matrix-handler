@@ -39,7 +39,7 @@ func parseSlack(body []byte) string {
 		Text string
 	}{}
 
-	json.Unmarshal(body, &respbody)
+	json.Unmarshal(body, &reqBody)
 
-	return respBody.Text
+	return reqBody.Text
 }
