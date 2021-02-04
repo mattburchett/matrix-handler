@@ -24,9 +24,9 @@ func Handle(cfg config.Config) http.HandlerFunc {
 			log.Error().Err(err).Msg("An error has occurred")
 		}
 
-		matrix.PublishText(cfg, vars, reqBody, token)
+		resp := matrix.PublishText(cfg, vars, reqBody, token)
 
-		router.Respond(w, 200, nil)
+		router.Respond(w, 200, resp)
 	}
 
 }

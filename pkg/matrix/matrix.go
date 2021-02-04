@@ -61,7 +61,7 @@ func GetToken(cfg config.Config, vars map[string]string) string {
 }
 
 // PublishText will publish the data to Matrix using the specified vars.
-func PublishText(cfg config.Config, vars map[string]string, data []byte, token string) {
+func PublishText(cfg config.Config, vars map[string]string, data []byte, token string) []byte {
 	matrixPublish := struct {
 		MsgType string `json:"msgtype"`
 		Body    string `json:"body"`
@@ -89,8 +89,7 @@ func PublishText(cfg config.Config, vars map[string]string, data []byte, token s
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
-	fmt.Println(string(body))
-
 	defer resp.Body.Close()
 
+	return body
 }
