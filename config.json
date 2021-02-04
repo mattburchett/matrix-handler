@@ -1,0 +1,11 @@
+{
+    "port": 3000,
+    "logLevel": "debug",
+    "name": "matrix-handler",
+    "matrix": { 
+       "homeserver": "https://matrix.linuxrocker.com",
+       "port": 8448
+    }
+   }
+   
+   
