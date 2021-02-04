@@ -8,6 +8,7 @@ import (
 	"git.linuxrocker.com/mattburchett/matrix-handler/pkg/generic"
 
 	"git.linuxrocker.com/mattburchett/matrix-handler/pkg/router"
+	"git.linuxrocker.com/mattburchett/matrix-handler/pkg/slack"
 
 	"github.com/rs/cors"
 	"github.com/rs/zerolog"
