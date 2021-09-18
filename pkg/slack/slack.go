@@ -27,7 +27,7 @@ func Handle(cfg config.Config) http.HandlerFunc {
 
 		data := parseSlack(reqBody)
 
-		// Attempt to join romo before publishing
+		// Attempt to join room before publishing
 		matrix.JoinRoom(cfg, vars, token)
 
 		// Publish to Matrix

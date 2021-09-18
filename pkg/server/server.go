@@ -7,6 +7,7 @@ import (
 	"git.linuxrocker.com/mattburchett/matrix-handler/pkg/config"
 	"git.linuxrocker.com/mattburchett/matrix-handler/pkg/generic"
 
+	prom "git.linuxrocker.com/mattburchett/matrix-handler/pkg/prometheus"
 	"git.linuxrocker.com/mattburchett/matrix-handler/pkg/router"
 	"git.linuxrocker.com/mattburchett/matrix-handler/pkg/slack"
 
@@ -34,6 +35,7 @@ func Run(info *router.BuildInfo) error {
 
 	router.HandleWithMetrics("/generic/{matrixRoom}/{matrixUser}/{matrixPassword}", generic.Handle(conf)).Methods(http.MethodPost)
 	router.HandleWithMetrics("/slack/{matrixRoom}/{matrixUser}/{matrixPassword}", slack.Handle(conf)).Methods(http.MethodPost)
+	router.HandleWithMetrics("/prometheus/{matrixRoom}/{matrixUser}/{matrixPassword}", prom.Handle(conf)).Methods(http.MethodPost)
 
 	srv := http.Server{
 		Addr:    fmt.Sprintf(":%d", conf.Port),

@@ -35,4 +35,5 @@ func main() {
 		e := log.Fatal().Stack().Caller().Err(err)
 		e.Send()
 	}
+
 }
