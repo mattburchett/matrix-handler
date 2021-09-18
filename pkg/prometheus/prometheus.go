@@ -71,7 +71,7 @@ func parsePrometheus(body []byte) []string {
 	// Description : Clock on 10.234.62.22:9100 is not synchronising. Ensure NTP is configured on this host.
 	var message []string
 	for _, i := range reqBody.Alerts {
-		message = append(message, fmt.Sprintf("%s : %s\n%s\n%s\n%s\n%s\n", i.Labels.Alertname, i.Status,
+		message = append(message, fmt.Sprintf("%s : %s\nInstance : %s\nSeverity : %s\nStarted : %s\nDescription : %s\n", i.Labels.Alertname, i.Status,
 			i.Labels.Instance, i.Labels.Severity, i.StartsAt, i.Annotations.Description))
 	}
 
