@@ -11,6 +11,10 @@ github.com/golang/protobuf/ptypes/timestamp
 # github.com/gorilla/mux v1.8.0
 ## explicit
 github.com/gorilla/mux
+# github.com/mattn/go-colorable v0.1.12
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.14
+github.com/mattn/go-isatty
 # github.com/matttproud/golang_protobuf_extensions v1.0.1
 github.com/matttproud/golang_protobuf_extensions/pbutil
 # github.com/pkg/errors v0.9.1
@@ -34,7 +38,7 @@ github.com/prometheus/procfs/internal/util
 # github.com/rs/cors v1.8.2
 ## explicit
 github.com/rs/cors
-# github.com/rs/zerolog v1.18.0
+# github.com/rs/zerolog v1.27.0
 ## explicit
 github.com/rs/zerolog
 github.com/rs/zerolog/internal/cbor
