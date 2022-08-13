@@ -12,7 +12,7 @@ This is a Slack-friendly handler that will accept any form of Slack data and pas
 ### Docker Usage
 
 #### Prebuilt Image
-There is a prebuilt image already on `registry.linuxrocker.com/matrix-handler:latest`
+There is a prebuilt image already on `ghcr.io/mattburchett/matrix-handler:latest`
 
 #### Building Your Own
 
@@ -29,7 +29,7 @@ You can use these settings for deploying via Docker Compose.
 version: '3.5'
 services:
     matrix-handler:
-      image: registry.linuxrocker.com/matrix-handler:latest
+      image: ghcr.io/mattburchett/matrix-handler:latest
       restart: always
       container_name: matrix-handler
       ports:
