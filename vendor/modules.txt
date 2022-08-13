@@ -31,7 +31,7 @@ github.com/prometheus/common/model
 github.com/prometheus/procfs
 github.com/prometheus/procfs/internal/fs
 github.com/prometheus/procfs/internal/util
-# github.com/rs/cors v1.7.0
+# github.com/rs/cors v1.8.2
 ## explicit
 github.com/rs/cors
 # github.com/rs/zerolog v1.18.0
