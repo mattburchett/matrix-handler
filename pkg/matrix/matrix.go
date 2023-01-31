@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 
 	"git.linuxrocker.com/mattburchett/matrix-handler/pkg/config"
 	"github.com/rs/zerolog/log"
@@ -21,6 +22,17 @@ func GetToken(cfg config.Config, vars map[string]string) string {
 		Type:     "m.login.password",
 		Username: vars["matrixUser"],
 		Password: vars["matrixPassword"],
+	}
+
+	tokenLocation := fmt.Sprintf("/config/token_%s", matrixConfig.Username)
+
+	if _, err := os.Stat(tokenLocation); err == nil {
+		token, err := ioutil.ReadFile(tokenLocation)
+		if err != nil {
+			log.Error().Err(err).Msg("failed to read file")
+		}
+
+		return string(token)
 	}
 
 	reqBody, err := json.Marshal(matrixConfig)
@@ -39,6 +51,13 @@ func GetToken(cfg config.Config, vars map[string]string) string {
 	if err != nil {
 		log.Error().Err(err).Msg("matrix.GetToken.respBody" + err.Error())
 	}
+
+	file, err := os.Create(tokenLocation)
+	if err != nil {
+		log.Error().Err(err).Msg("failed to create file")
+	}
+
+	file.Write([]byte(respBody.AccessToken))
 
 	return respBody.AccessToken
 }
