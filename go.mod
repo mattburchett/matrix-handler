@@ -8,7 +8,7 @@ require (
 	github.com/gorilla/mux v1.8.1
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.22.0
-	github.com/rs/cors v1.8.3
+	github.com/rs/cors v1.11.1
 	github.com/rs/zerolog v1.34.0
 )
 
