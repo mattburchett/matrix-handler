@@ -2,7 +2,7 @@ module git.linuxrocker.com/mattburchett/matrix-handler
 
 go 1.22
 
-toolchain go1.24.4
+toolchain go1.27.1
 
 require (
 	github.com/gorilla/mux v1.8.1
